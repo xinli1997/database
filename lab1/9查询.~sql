@@ -1,0 +1,4 @@
+select rid,count(bid)
+from cs_view
+where bdate>to_date('2017-04-25','yyyy-mm-dd')
+group by rid

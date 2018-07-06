@@ -1,0 +1,13 @@
+create or replace trigger setsta2
+  after update of return_date
+  on borrow 
+  for each row
+declare
+  a char(8):='00000000';
+begin
+  select book_id into a from borrow where book_id=:new.book_id and reader_id=:new.reader_id;
+  update book
+  set status=0
+  where id=a;
+end setsta2;
+/

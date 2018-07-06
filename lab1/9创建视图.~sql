@@ -1,0 +1,5 @@
+create or replace view cs_view as
+  select reader.name,reader.id,borrow.book_id,book.bname,borrow.borrow_date
+    from reader,book,borrow
+   where reader.id=borrow.reader_id and book.id=borrow.book_id
+   
